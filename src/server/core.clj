@@ -6,11 +6,13 @@
        org.httpkit.server
        clojure.stacktrace)
  (:gen-class))
+(def countUsers (atom 0))
 
 (defn helloHandler [request]
+  (swap! countUsers inc)
   {:status 200
    :headers {"Content-Type" "text/plain"}
-   :body "1"})
+   :body (str @countUsers)})
 
 (defroutes all-routes
   (GET "/hello" [] helloHandler)

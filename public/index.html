@@ -1,1 +1,23 @@
-hlllalall
+<html> 
+	<head> </head>
+	<body>
+		<h1 id="header1"> Venter </h1>
+		<script type="text/javascript"> 
+			var f=function(m){
+				var header1 = document.getElementById("header1");
+				header1.textContent = "Hello all, "+m;
+			}
+			var o = {a:1, b:"Morten"}
+
+
+			var xhr = new XMLHttpRequest();
+			xhr.open("GET", "/hello", true);
+			xhr.send();
+			xhr.onreadystatechange=function(){
+				if (xhr.readyState===4 && xhr.status===200){
+					f(xhr.responseText);
+				}
+			}
+		</script>
+	</body>
+</html>
